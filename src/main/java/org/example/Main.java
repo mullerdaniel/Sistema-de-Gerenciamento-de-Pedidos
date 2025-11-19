@@ -2,6 +2,14 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
+        ProcessadorDePedido processador = new ProcessadorDePedido();
+        SRP_VIOLACAO.Pedido pedido1 = new SRP_VIOLACAO.Pedido("PED-123", 600.00, 5, "cliente@email.com");
 
+        try {
+            double total = processador.processar(pedido1);
+            System.out.println("Resultado final: Pedido processado com sucesso! Total: R$" + total);
+        } catch (Exception e) {
+            System.out.println("Erro ao processar pedido: " + e.getMessage());
+        }
     }
 }
